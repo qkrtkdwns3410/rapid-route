@@ -1,12 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.6'
-    id 'io.spring.dependency-management' version '1.1.7'
-}
-
-// 루트 프로젝트에서는 bootJar 태스크 비활성화
-bootJar {
-    enabled = false
+    id 'org.springframework.boot' version '3.5.6' apply false
+    id 'io.spring.dependency-management' version '1.1.7' apply false
 }
 
 group = 'com.genesisnest'
@@ -27,6 +22,8 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
     configurations {
@@ -47,5 +44,20 @@ subprojects {
 
     tasks.named('test') {
         useJUnitPlatform()
+    }
+    project(':route-common') { // multi-module-databse는 bootJar로 패키징 할 필요 없음
+        bootJar { enabled = false }
+    }
+    project(':route-config') { // multi-module-databse는 bootJar로 패키징 할 필요 없음
+        bootJar { enabled = false }
+    }
+    project(':route-core') { // multi-module-databse는 bootJar로 패키징 할 필요 없음
+        bootJar { enabled = false }
+    }
+    project(':route-domain') { // multi-module-databse는 bootJar로 패키징 할 필요 없음
+        bootJar { enabled = false }
+    }
+    project(':route-infra-client') { // multi-module-databse는 bootJar로 패키징 할 필요 없음
+        bootJar { enabled = false }
     }
 }

@@ -1,6 +1,7 @@
 package com.genesisnest.gdpt.domain.vo;
 
 import jakarta.persistence.Embeddable;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Objects;
