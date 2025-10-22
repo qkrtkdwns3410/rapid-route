@@ -62,23 +62,18 @@ public class AgencyQuote extends BaseEntity {
     @Column(name = "estimated_delivery_time")
     private LocalDateTime estimatedDeliveryTime;
     
-    @lombok.Setter
     @Column(name = "estimated_distance")
     private BigDecimal estimatedDistance; // km
     
-    @lombok.Setter
     @Column(name = "estimated_duration")
     private Integer estimatedDuration; // minutes
     
-    @lombok.Setter
     @Column(name = "vehicle_type")
     private String vehicleType;
     
-    @lombok.Setter
     @Column(name = "service_level")
     private String serviceLevel; // STANDARD, EXPRESS, SAME_DAY
     
-    @lombok.Setter
     @Column(name = "quote_valid_until")
     private LocalDateTime quoteValidUntil;
     

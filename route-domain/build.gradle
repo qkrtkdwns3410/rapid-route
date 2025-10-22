@@ -1,7 +1,12 @@
+plugins {
+    id 'java-library'
+}
 dependencies {
+    api project(':route-common')
+
     // Jakarta Persistence API (JPA 어노테이션용)
     compileOnly 'jakarta.persistence:jakarta.persistence-api:3.1.0'
-    
+
     // Spring Data JPA (Auditing 어노테이션용)
     compileOnly 'org.springframework.data:spring-data-jpa:3.2.5'
 }

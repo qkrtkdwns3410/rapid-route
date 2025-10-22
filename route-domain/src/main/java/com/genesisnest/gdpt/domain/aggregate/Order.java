@@ -5,6 +5,7 @@ import com.genesisnest.gdpt.domain.vo.Address;
 import com.genesisnest.gdpt.domain.vo.Money;
 import com.genesisnest.gdpt.domain.vo.OrderStatus;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
