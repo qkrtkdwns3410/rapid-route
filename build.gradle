@@ -19,7 +19,7 @@ allprojects {
             languageVersion = JavaLanguageVersion.of(24)
         }
     }
-    
+
     repositories {
         mavenCentral()
     }
@@ -28,23 +28,23 @@ allprojects {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
-    
+
     configurations {
         compileOnly {
             extendsFrom annotationProcessor
         }
     }
-    
+
     dependencies {
         // Lombok
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
-        
+
         // TEST
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
-    
+
     tasks.named('test') {
         useJUnitPlatform()
     }
