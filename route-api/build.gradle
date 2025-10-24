@@ -1,4 +1,0 @@
-dependencies {
-    implementation project(':route-core')
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-}
