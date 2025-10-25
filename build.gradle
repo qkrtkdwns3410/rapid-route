@@ -1,12 +1,10 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.6'
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
-// 루트 프로젝트에서는 bootJar 태스크 비활성화
-bootJar {
-    enabled = false
+ext {
+    springModulithVersion = "1.4.3"
 }
 
 group = 'com.genesisnest'
@@ -19,33 +17,26 @@ allprojects {
             languageVersion = JavaLanguageVersion.of(24)
         }
     }
-    
+
     repositories {
         mavenCentral()
     }
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:3.5.6"
+        mavenBom "org.springframework.modulith:spring-modulith-bom:$springModulithVersion"
+    }
+}
+
 subprojects {
-    apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
     
-    configurations {
-        compileOnly {
-            extendsFrom annotationProcessor
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:3.5.6"
+            mavenBom "org.springframework.modulith:spring-modulith-bom:$springModulithVersion"
         }
-    }
-    
-    dependencies {
-        // Lombok
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
-        
-        // TEST
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    }
-    
-    tasks.named('test') {
-        useJUnitPlatform()
     }
 }

@@ -1,7 +1,8 @@
 rootProject.name = 'rapid-route'
 
-include 'route-app'
-include 'route-api'
-include 'common'
+include 'shared'
+include 'settings'
 include 'order'
 include 'quote'
+include 'app'
+
